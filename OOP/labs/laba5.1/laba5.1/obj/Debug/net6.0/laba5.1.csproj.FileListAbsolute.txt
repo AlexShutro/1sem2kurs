@@ -1,0 +1,14 @@
+D:\1 сем\ооп\лабы\laba5.1\laba5.1\bin\Debug\net6.0\laba5.1.exe
+D:\1 сем\ооп\лабы\laba5.1\laba5.1\bin\Debug\net6.0\laba5.1.deps.json
+D:\1 сем\ооп\лабы\laba5.1\laba5.1\bin\Debug\net6.0\laba5.1.runtimeconfig.json
+D:\1 сем\ооп\лабы\laba5.1\laba5.1\bin\Debug\net6.0\laba5.1.dll
+D:\1 сем\ооп\лабы\laba5.1\laba5.1\bin\Debug\net6.0\laba5.1.pdb
+D:\1 сем\ооп\лабы\laba5.1\laba5.1\obj\Debug\net6.0\laba5.1.GeneratedMSBuildEditorConfig.editorconfig
+D:\1 сем\ооп\лабы\laba5.1\laba5.1\obj\Debug\net6.0\laba5.1.AssemblyInfoInputs.cache
+D:\1 сем\ооп\лабы\laba5.1\laba5.1\obj\Debug\net6.0\laba5.1.AssemblyInfo.cs
+D:\1 сем\ооп\лабы\laba5.1\laba5.1\obj\Debug\net6.0\laba5.1.csproj.CoreCompileInputs.cache
+D:\1 сем\ооп\лабы\laba5.1\laba5.1\obj\Debug\net6.0\laba5.1.dll
+D:\1 сем\ооп\лабы\laba5.1\laba5.1\obj\Debug\net6.0\refint\laba5.1.dll
+D:\1 сем\ооп\лабы\laba5.1\laba5.1\obj\Debug\net6.0\laba5.1.pdb
+D:\1 сем\ооп\лабы\laba5.1\laba5.1\obj\Debug\net6.0\laba5.1.genruntimeconfig.cache
+D:\1 сем\ооп\лабы\laba5.1\laba5.1\obj\Debug\net6.0\ref\laba5.1.dll
