@@ -1,0 +1,29 @@
+C:\Users\Еван\OneDrive\Рабочий стол\C++\Computer Networks\LAB6\bin\Debug\net6.0\LAB6.exe
+C:\Users\Еван\OneDrive\Рабочий стол\C++\Computer Networks\LAB6\bin\Debug\net6.0\LAB6.deps.json
+C:\Users\Еван\OneDrive\Рабочий стол\C++\Computer Networks\LAB6\bin\Debug\net6.0\LAB6.runtimeconfig.json
+C:\Users\Еван\OneDrive\Рабочий стол\C++\Computer Networks\LAB6\bin\Debug\net6.0\LAB6.dll
+C:\Users\Еван\OneDrive\Рабочий стол\C++\Computer Networks\LAB6\bin\Debug\net6.0\LAB6.pdb
+C:\Users\Еван\OneDrive\Рабочий стол\C++\Computer Networks\LAB6\obj\Debug\net6.0\LAB6.csproj.AssemblyReference.cache
+C:\Users\Еван\OneDrive\Рабочий стол\C++\Computer Networks\LAB6\obj\Debug\net6.0\LAB6.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Еван\OneDrive\Рабочий стол\C++\Computer Networks\LAB6\obj\Debug\net6.0\LAB6.AssemblyInfoInputs.cache
+C:\Users\Еван\OneDrive\Рабочий стол\C++\Computer Networks\LAB6\obj\Debug\net6.0\LAB6.AssemblyInfo.cs
+C:\Users\Еван\OneDrive\Рабочий стол\C++\Computer Networks\LAB6\obj\Debug\net6.0\LAB6.csproj.CoreCompileInputs.cache
+C:\Users\Еван\OneDrive\Рабочий стол\C++\Computer Networks\LAB6\obj\Debug\net6.0\LAB6.dll
+C:\Users\Еван\OneDrive\Рабочий стол\C++\Computer Networks\LAB6\obj\Debug\net6.0\refint\LAB6.dll
+C:\Users\Еван\OneDrive\Рабочий стол\C++\Computer Networks\LAB6\obj\Debug\net6.0\LAB6.pdb
+C:\Users\Еван\OneDrive\Рабочий стол\C++\Computer Networks\LAB6\obj\Debug\net6.0\LAB6.genruntimeconfig.cache
+C:\Users\Еван\OneDrive\Рабочий стол\C++\Computer Networks\LAB6\obj\Debug\net6.0\ref\LAB6.dll
+D:\1 сем\кс\лабы\LAB6\bin\Debug\net6.0\LAB6.exe
+D:\1 сем\кс\лабы\LAB6\bin\Debug\net6.0\LAB6.deps.json
+D:\1 сем\кс\лабы\LAB6\bin\Debug\net6.0\LAB6.runtimeconfig.json
+D:\1 сем\кс\лабы\LAB6\bin\Debug\net6.0\LAB6.dll
+D:\1 сем\кс\лабы\LAB6\bin\Debug\net6.0\LAB6.pdb
+D:\1 сем\кс\лабы\LAB6\obj\Debug\net6.0\LAB6.GeneratedMSBuildEditorConfig.editorconfig
+D:\1 сем\кс\лабы\LAB6\obj\Debug\net6.0\LAB6.AssemblyInfoInputs.cache
+D:\1 сем\кс\лабы\LAB6\obj\Debug\net6.0\LAB6.AssemblyInfo.cs
+D:\1 сем\кс\лабы\LAB6\obj\Debug\net6.0\LAB6.csproj.CoreCompileInputs.cache
+D:\1 сем\кс\лабы\LAB6\obj\Debug\net6.0\LAB6.dll
+D:\1 сем\кс\лабы\LAB6\obj\Debug\net6.0\refint\LAB6.dll
+D:\1 сем\кс\лабы\LAB6\obj\Debug\net6.0\LAB6.pdb
+D:\1 сем\кс\лабы\LAB6\obj\Debug\net6.0\LAB6.genruntimeconfig.cache
+D:\1 сем\кс\лабы\LAB6\obj\Debug\net6.0\ref\LAB6.dll
