@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Шифрование сообщения</title>
+    <script>
+        function encryptMessage() {
+            var message = document.getElementById("message").value;
+            var cipherType = document.getElementById("cipherType").value;
+            var key = document.getElementById("key").value;
+
+            var encryptedMessage = "";
+
+            if (cipherType === "caesar") {
+                encryptedMessage = caesarCipher(message, key);
+            } else if (cipherType === "trithemius") {
+                encryptedMessage = trithemiusCipher(message, key);
+            } else if (cipherType === "playfair") {
+                encryptedMessage = playfairCipher(message, key);
+            } else if (cipherType === "vigenere") {
+                encryptedMessage = vigenereCipher(message, key);
+            }
+
+            document.getElementById("encryptedMessage").textContent = encryptedMessage;
+        }
+
+        function caesarCipher(message, key) {
+            var encryptedMessage = "";
+            var alphabet = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
+            key = key.toUpperCase();
+
+            for (var i = 0; i < message.length; i++) {
+                var char = message.charAt(i).toUpperCase();
+                var index = alphabet.indexOf(char);
+
+                if (index !== -1) {
+                    var newIndex = (index + key) % 32;
+                    encryptedMessage += alphabet.charAt(newIndex);
+                } else {
+                    encryptedMessage += char;
+                }
+            }
+
+            return encryptedMessage;
+        }
+
+        function trithemiusCipher(message, key) {
+            var encryptedMessage = "";
+            var alphabet = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
+            key = key.toUpperCase();
+
+            for (var i = 0; i < message.length; i++) {
+                var char = message.charAt(i).toUpperCase();
+                var index = alphabet.indexOf(char);
+
+                if (index !== -1) {
+                    var newIndex = (index + (key.charCodeAt(i % key.length) - 65)) % 26;
+                    encryptedMessage += alphabet.charAt(newIndex);
+                } else {
+                    encryptedMessage += char;
+                }
+            }
+
+            return encryptedMessage;
+        }
+            function playfairCipher(message, key) {
+    // Функция для удаления повторяющихся символов из ключа и добавления оставшихся символов в массив
+    function generateKeySquare(key) {
+        var keySquare = [];
+        var keyWithoutDuplicates = key
+            .split('')
+            .filter((value, index, self) => self.indexOf(value) === index);
+
+        var alphabet = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ';
+
+        // Создание матрицы ключа
+        for (var i = 0; i < keyWithoutDuplicates.length; i++) {
+            var char = keyWithoutDuplicates[i];
+            keySquare.push(char);
+            alphabet = alphabet.replace(char, '');
+        }
+
+        // Добавление оставшихся символов алфавита в матрицу ключа
+        for (var j = 0; j < alphabet.length; j++) {
+            keySquare.push(alphabet[j]);
+        }
+
+        return keySquare;
+    }
+
+    // Функция для разделения сообщения на пары символов
+    function splitMessage(message) {
+        var pairs = [];
+        var i = 0;
+
+        while (i < message.length) {
+            var pair = message.slice(i, i + 2);
+            if (pair.length < 2) {
+                pair += 'А';
+            } else if (pair[0] === pair[1]) {
+                pair = pair[0] + 'А' + pair[1];
+                i--;
+            }
+            pairs.push(pair.toUpperCase());
+            i += 2;
+        }
+
+        return pairs;
+    }
+
+    // Функция для поиска позиции символа в матрице ключа
+    function findPosition(char, keySquare) {
+        var row, col;
+
+        for (var i = 0; i < keySquare.length; i++) {
+            if (keySquare[i] === char) {
+                row = Math.floor(i / 5);
+                col = i % 5;
+                break;
+            }
+        }
+
+        return { row, col };
+    }
+
+    var keySquare = generateKeySquare(key);
+    var pairs = splitMessage(message);
+    var encryptedPairs = [];
+
+    // Обработка каждой пары символов
+    for (var pair of pairs) {
+        var char1 = pair[0];
+        var char2 = pair[1];
+
+        var pos1 = findPosition(char1, keySquare);
+        var pos2 = findPosition(char2, keySquare);
+
+        var encryptedChar1, encryptedChar2;
+
+        if (pos1.row === pos2.row) {
+            // Символы в одной строке
+            encryptedChar1 = keySquare[pos1.row * 5 + (pos1.col + 1) % 5];
+            encryptedChar2 = keySquare[pos2.row * 5 + (pos2.col + 1) % 5];
+        } else if (pos1.col === pos2.col) {
+            // Символы в одном столбце
+            encryptedChar1 = keySquare[((pos1.row + 1) % 5) * 5 + pos1.col];
+            encryptedChar2 = keySquare[((pos2.row + 1) % 5) * 5 + pos2.col];
+        } else {
+            // Символы в разных строках и столбцах
+            encryptedChar1 = keySquare[pos1.row * 5 + pos2.col];
+            encryptedChar2 = keySquare[pos2.row * 5 + pos1.col];
+        }
+
+        encryptedPairs.push(encryptedChar1 + encryptedChar2);
+    }
+
+    return encryptedPairs.join('');
+        }
+
+
+        function vigenereCipher(message, key) {
+    // Функция для повторения ключа до длины сообщения
+    function  repeatKey(key, length) {
+        var repeatedKey = '';
+        var keyIndex = 0;
+
+        for (var i = 0; i < length; i++) {
+            repeatedKey += key[keyIndex];
+            keyIndex = (keyIndex + 1) % key.length;
+        }
+
+        return repeatedKey;
+    }
+
+    // Функция для получения кода символа
+    function getCharCode(char) {
+        return char.charCodeAt(0);
+    }
+
+    // Функция для получения символа по коду
+    function getCharFromCode(code) {
+        return String.fromCharCode(code);
+    }
+
+    var repeatedKey = repeatKey(key, message.length);
+    var encryptedMessage = ' ';
+
+    // Обработка каждого символа в сообщении
+    for (var i = 0; i < message.length; i++) {
+        var char = message[i];
+        var keyChar = repeatedKey[i];
+
+        var charCode = getCharCode(char);
+        var keyCharCode = getCharCode(keyChar);
+
+
+        // Шифрование символа по формуле C = (M + K) % 32
+        var encryptedCharCode = (charCode + keyCharCode)  % 26;
+
+        var encryptedChar = getCharFromCode(encryptedCharCode + 1040); // Преобразование кода в символ Unicode русской буквы
+
+        encryptedMessage += encryptedChar;
+    }
+
+    return encryptedMessage;
+}
+  </script>
+</head>
+<body>
+    <h1>Шифрование сообщения</h1>
+
+    <label for="message">Сообщение:</label>
+    <input type="text" id="message" /><br />
+
+    <label for="cipherType">Тип шифра:</label>
+    <select id="cipherType">
+        <option value="caesar">Шифр Цезаря</option>
+        <option value="trithemius">Шифр Трисемуса</option>
+        <option value="playfair">Шифр Плейфейра</option>
+        <option value="vigenere">Шифр Вижинера</option>
+    </select><br />
+
+    <label for="key">Ключ:</label>
+    <input type="text" id="key" /><br />
+
+    <button onclick="encryptMessage()">Зашифровать</button>
+
+    <h2>Зашифрованное сообщение:</h2>
+    <p id="encryptedMessage"></p>
+</body>
+</html>

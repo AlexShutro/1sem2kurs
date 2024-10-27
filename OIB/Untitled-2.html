@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Decryption with Playfair Cipher</title>
+    <script type="text/javascript">
+        function playfairCipherDecrypt(encryptedMessage, key) {
+            // Функция для генерации матрицы ключа
+            function generateKeyMatrix(key) {
+                var keyMatrix = [];
+                var alphabet = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ';
+
+                // Удаление повторяющихся символов из ключа и добавление оставшихся в матрицу
+                var keyWithoutDuplicates = key
+                    .split('')
+                    .filter((value, index, self) => self.indexOf(value) === index);
+
+                // Удаление символа 'J' из ключа и добавление 'I' на его место
+                keyWithoutDuplicates = keyWithoutDuplicates.filter(char => char !== 'J');
+                keyWithoutDuplicates.push('I');
+
+                // Создание матрицы ключа
+                for (var i = 0; i < keyWithoutDuplicates.length; i++) {
+                    var char = keyWithoutDuplicates[i];
+                    keyMatrix.push(char);
+                    alphabet = alphabet.replace(char, '');
+                }
+
+                // Добавление оставшихся символов алфавита в матрицу ключа
+                for (var j = 0; j < alphabet.length; j++) {
+                    keyMatrix.push(alphabet[j]);
+                }
+
+                return keyMatrix;
+            }
+
+            var keyMatrix = generateKeyMatrix(key);
+            var decryptedMessage = '';
+
+            // Разделение зашифрованного сообщения на пары символов
+            for (var i = 0; i < encryptedMessage.length; i += 2) {
+                var char1 = encryptedMessage[i];
+                var char2 = encryptedMessage[i + 1];
+
+                var pos1 = keyMatrix.indexOf(char1);
+                var pos2 = keyMatrix.indexOf(char2);
+
+                var decryptedChar1, decryptedChar2;
+
+                if (pos1 % 5 === pos2 % 5) {
+                    // Символы в одной строке
+                    var row = Math.floor(pos1 / 5);
+
+                    decryptedChar1 = keyMatrix[(row * 5 + (pos1 + 4) % 5)];
+                    decryptedChar2 = keyMatrix[(row * 5 + (pos2 + 4) % 5)];
+                } else if (Math.floor(pos1 / 5) === Math.floor(pos2 / 5)) {
+                    // Символы в одном столбце
+                    var col = pos1 % 5;
+
+                    decryptedChar1 = keyMatrix[((pos1 + 20) % 25) - col];
+                    decryptedChar2 = keyMatrix[((pos2 + 20) % 25) - col];
+                } else {
+                    // Символы на пересечении прямоугольника
+                    var row1 = Math.floor(pos1 / 5);
+                    var row2 = Math.floor(pos2 / 5);
+                    var col1 = pos1 % 5;
+                    var col2 = pos2 % 5;
+
+                    decryptedChar1 = keyMatrix[row1 * 5 + col2];
+                    decryptedChar2 = keyMatrix[row2 * 5 + col1];
+                }
+
+                decryptedMessage += decryptedChar1;
+                if (decryptedChar2) {
+                    decryptedMessage += decryptedChar2;
+                }
+            }
+
+            return decryptedMessage;
+        }
+
+        function decryptMessage() {
+            var encryptedMessage = document.getElementById('encryptedMessage').value;
+            var key = document.getElementById('key').value.toUpperCase();
+
+            var decryptedMessage = playfairCipherDecrypt(encryptedMessage, key);
+            document.getElementById('decryptedMessage').value = decryptedMessage;
+        }
+    </script>
+</head>
+<body>
+    <h1>Decryption with Playfair Cipher</h1>
+    <label for="encryptedMessage">Encrypted Message:</label>
+    <br>
+    <textarea id="encryptedMessage" rows="3" cols="30">нп тр яч дн ка бо ат дъ ка цр кб щг уф уч тб ты</textarea>
+    <br>
+    <label for="key">Key:</label>
+    <br>
+    <input type="text" id="key" value="АБСТРАКЦИЯ">
+    <br>
+    <button onclick="decryptMessage()">Decrypt</button>
+    <br>
+   <label for="decryptedMessage">Decrypted Message:</label>
+    <br>
+    <textarea id="decryptedMessage" rows="3" cols="30" readonly></textarea>
+    <script>decryptMessage();</script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+function playfairCipher(message, key) {
+    // Функция для удаления повторяющихся символов из ключа и добавления оставшихся символов в массив
+    function generateKeySquare(key) {
+        var keySquare = [];
+        var keyWithoutDuplicates = key
+            .split('')
+            .filter((value, index, self) => self.indexOf(value) === index);
+
+        var alphabet = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя';
+
+        // Создание матрицы ключа
+        for (var i = 0; i < keyWithoutDuplicates.length; i++) {
+            var char = keyWithoutDuplicates[i];
+            keySquare.push(char);
+            alphabet = alphabet.replace(char, '');
+        }
+
+        // Добавление оставшихся символов алфавита в матрицу ключа
+        for (var j = 0; j < alphabet.length; j++) {
+            keySquare.push(alphabet[j]);
+        }
+
+        return keySquare;
+    }
+
+    // Функция для разделения сообщения на пары символов
+    function splitMessage(message) {
+        var pairs = [];
+        var i = 0;
+
+        while (i < message.length) {
+            var pair = message.slice(i, i + 2);
+            if (pair.length < 2) {
+                pair += 'X';
+            } else if (pair[0] === pair[1]) {
+                pair = pair[0] + 'X' + pair[1];
+                i--;
+            }
+            pairs.push(pair.toUpperCase());
+            i += 2;
+        }
+
+        return pairs;
+    }
+
+    // Функция для поиска позиции символа в матрице ключа
+    function findPosition(char, keySquare) {
+        var row, col;
+
+        for (var i = 0; i < keySquare.length; i++) {
+            if (keySquare[i] === char) {
+                row = Math.floor(i / 5);
+                col = i % 5;
+                break;
+            }
+        }
+
+        return { row, col };
+    }
+
+    var keySquare = generateKeySquare(key);
+    var pairs = splitMessage(message);
+    var encryptedPairs = [];
+
+    // Обработка каждой пары символов
+    for (var pair of pairs) {
+        var char1 = pair[0];
+        var char2 = pair[1];
+
+        var pos1 = findPosition(char1, keySquare);
+        var pos2 = findPosition(char2, keySquare);
+
+        var encryptedChar1, encryptedChar2;
+
+        if (pos1.row === pos2.row) {
+            // Символы в одной строке
+            encryptedChar1 = keySquare[pos1.row * 5 + (pos1.col + 1) % 5];
+            encryptedChar2 = keySquare[pos2.row * 5 + (pos2.col + 1) % 5];
+        } else if (pos1.col === pos2.col) {
+            // Символы в одном столбце
+            encryptedChar1 = keySquare[((pos1.row + 1) % 5) * 5 + pos1.col];
+            encryptedChar2 = keySquare[((pos2.row + 1) % 5) * 5 + pos2.col];
+        } else {
+            // Символы в разных строках и столбцах
+            encryptedChar1 = keySquare[pos1.row * 5 + pos2.col];
+            encryptedChar2 = keySquare[pos2.row * 5 + pos1.col];
+        }
+
+        encryptedPairs.push(encryptedChar1 + encryptedChar2);
+    }
+
+    return encryptedPairs.join('');
+}
+
+var message = 'Шутро Александр Сергеевич';
+var key = 'Защита';
+
+var encryptedMessage = playfairCipher(message, key);
+console.log(encryptedMessage);
+    </script>
+</body>
+</html>

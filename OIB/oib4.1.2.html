@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Расшифровка шифра Плейфейра</title>
+</head>
+<body>
+  <h1>Расшифровка шифра Плейфейра</h1>
+  <p id="encrypted-text">нп тр яч дн ка бо ат дъ ка цр кб щг уф уч тб ты</p>
+  <button onclick="decrypt()">Расшифровать</button>
+  <p id="decrypted-text"></p>
+
+  <script>
+    function playfairDecipher(message, key) {
+    // Функция для удаления повторяющихся символов в ключе и добавления оставшихся символов в массив
+    function generateKeySquare(key) {
+        var keySquare = [];
+        var keyWithoutDuplicates = key
+            .split('')
+            .filter((value, index, self) => self.indexOf(value) === index);
+
+        var alphabet = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ';
+
+        // Создание матрицы ключа
+        for (var i = 0; i < keyWithoutDuplicates.length; i++) {
+            var char = keyWithoutDuplicates[i];
+            keySquare.push(char);
+            alphabet = alphabet.replace(char, '');
+        }
+
+        // Добавление оставшихся символов алфавита в матрицу ключа
+        for (var j = 0; j < alphabet.length; j++) {
+            keySquare.push(alphabet[j]);
+        }
+
+        return keySquare;
+    }
+
+    // Функция для разделения сообщения на пары символов
+    function splitMessage(message) {
+        var pairs = [];
+        var i = 0;
+
+        while (i < message.length) {
+            var pair = message.slice(i, i + 2);
+            if (pair.length < 2) {
+                pair += 'А';
+            } else if (pair[0] === pair[1]) {
+                pair = pair[0] + 'А' + pair[1];
+                i--;
+            }
+            pairs.push(pair);
+            i += 2;
+        }
+
+        return pairs;
+    }
+
+    // Функция для поиска позиции символа в матрице ключа
+    function findPosition(char, keySquare) {
+        var row, col;
+
+        for (var i = 0; i < keySquare.length; i++) {
+            if (keySquare[i] === char) {
+                row = Math.floor(i / 5);
+                col = i % 5;
+                break;
+            }
+        }
+
+        return { row, col };
+    }
+
+    var keySquare = generateKeySquare(key);
+    var pairs = splitMessage(message);
+    var decryptedPairs = [];
+
+    // Обработка каждой пары символов
+    for (var pair of pairs) {
+        var char1 = pair[0];
+        var char2 = pair[1];
+
+        var pos1 = findPosition(char1, keySquare);
+        var pos2 = findPosition(char2, keySquare);
+
+        var decryptedChar1, decryptedChar2;
+
+        if (pos1.row === pos2.row) {
+            // Символы находятся в одной строке
+            decryptedChar1 = keySquare[pos1.row * 5 + (pos1.col - 1 + 5) % 5];
+            decryptedChar2 = keySquare[pos2.row * 5 + (pos2.col - 1 + 5) % 5];
+        } else if (pos1.col === pos2.col) {
+            // Символы находятся в одном столбце
+            decryptedChar1 = keySquare[((pos1.row - 1 + 5) % 5) * 5 + pos1.col];
+            decryptedChar2 = keySquare[((pos2.row - 1 + 5) % 5) * 5 + pos2.col];
+        } else {
+            // Символы находятся в разных строках и столбцах
+            decryptedChar1 = keySquare[pos1.row * 5 + pos2.col];
+            decryptedChar2 = keySquare[pos2.row * 5 + pos1.col];
+        }
+
+        decryptedPairs.push(decryptedChar1 + decryptedChar2);
+    }
+
+    return decryptedPairs.join('');
+}
+
+var encryptedMessage = 'нп тр яч дн ка бо ат дъ ка цр кб щг уф уч тб ты';
+var key = 'АБСТРАКЦИЯ';
+
+var decryptedMessage = playfairDecipher(encryptedMessage, key);
+console.log(decryptedMessage);
+  </script>
+</body>
+</html>
