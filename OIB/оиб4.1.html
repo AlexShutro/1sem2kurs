@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log('Кодировка Цезаря:');
+
+//Цезарь
+const encode1 = () => {
+    const shift = 10;
+    let pos;
+
+    const OtherSymbols = [' ', ',', '.', ':', ';', '!', '?', '-', '_', '=', '+', '(', ')', '[', ']', '@', '`', "'", '"', '<', '>', '|', '/', '%', '$', '^', '&', '*', '~'];
+    const Numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    const RusAlfUp = ['А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я'];
+    const RusAlfLower = ['а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я'];
+    const RusAlfUpEncrypt = CezarEncrypt(shift, RusAlfUp);
+    const RusAlfLowerEncrypt = CezarEncrypt(shift, RusAlfLower);
+    const NumbersEncrypt = CezarEncrypt(shift, Numbers);
+
+    function CezarEncrypt(stap, arr) {
+        const CopyAlf = arr.slice();
+        let i = 0;
+
+        while ((i + stap) < (CopyAlf.length)) {
+            var buff = CopyAlf[i];
+            CopyAlf[i] = CopyAlf[i + stap];
+            CopyAlf[i + stap] = buff;
+            i++;
+        }
+        return CopyAlf;
+    }
+
+    function contains(symb, arr) {
+        const letter = symb;
+        pos = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (letter === arr[i]) {
+                pos = i;
+                return true;
+            }
+        }
+    }
+
+    function encrypt(text) {
+        let result = '';
+        for (let i = 0; i <= text.length; i++) {
+            let symbol = text[i];
+            if (contains(symbol, OtherSymbols)) {
+                result += symbol;
+            }
+            if (contains(symbol, Numbers)) {
+                symbol = NumbersEncrypt[pos];
+                result += symbol;
+            }
+            if (contains(symbol, RusAlfUp)) {
+                symbol = RusAlfUpEncrypt[pos];
+                result += symbol;
+            }
+            if ((contains(symbol, RusAlfLower))) {
+                symbol = RusAlfLowerEncrypt[pos];
+                result += symbol;
+            }
+        }
+        return result;
+    }
+
+    function decrypt(text) {
+        let result = '';
+        for (let i = 0; i <= text.length; i++) {
+            let symbol = text[i];
+            if (contains(symbol, OtherSymbols)) {
+                result += symbol;
+            }
+            if (contains(symbol, NumbersEncrypt)) {
+                symbol = Numbers[pos];
+                result += symbol;
+            }
+            if (contains(symbol, RusAlfUpEncrypt)) {
+                symbol = RusAlfUp[pos];
+                result += symbol;
+            }
+            if ((contains(symbol, RusAlfLowerEncrypt))) {
+                symbol = RusAlfLower[pos];
+                result += symbol;
+            }
+        }
+        return result;
+    }  
+
+    const message = 'Шутро Александр Сергеевич';
+    
+    const encodeMess = encrypt(message);
+    const decodeMess = decrypt(encodeMess);
+
+    console.log(`Закодированное: ${encodeMess}`);
+    console.log(`Декодированное: ${decodeMess}`);
+}
+
+encode1();
+
+
+console.log('Кодировка Трисемуса:');
+//трейсимус
+const encode2 = () => {
+    const encrypt = (key, message) => {
+        const newMess = message.replace(' ', '');
+        const width = 8;
+        const height = 4;
+
+        const alphabet = 'абвгдеёжзийклмнопрстуфхцчшщъьэюя';
+        const messageKey = key + alphabet.split('').filter(char => !key.includes(char)).join('');
+
+        const array = [];
+        let currentChar = 0;
+    
+        for (let i = 0; i < height; i++) {
+            const line = [];
+            for (let j  = 0; j < width; j ++) {
+                line.push(messageKey[currentChar]);
+                currentChar++; 
+            }
+            array.push(line);
+        }
+
+        let encodeMessage = '';
+
+        for (let i = 0; i < newMess.length; i++) {
+            const char = newMess[i];
+            array.forEach((line, lineIndex) => {
+                const index = line.indexOf(char);
+                if (index != -1) {
+                    const newLineIndex = lineIndex + 1 > height - 1 ? 0 : lineIndex + 1;
+                    encodeMessage += array[newLineIndex][index];
+                }
+            })
+        }
+
+        return encodeMessage;
+    }
+
+    const message = "мое сообщение";
+    const key = "привет"
+
+    const encodeMessage = encrypt(key, message);
+    console.log(`Закодированное: ${encodeMessage}`);
+    console.log(`Декодированное: ${message}`)
+}
+
+encode2();
+
+
+console.log('Кодировка Плейфейра:');
+//Плейфейра
+const encode3 = () => {
+    function playfairCipher(key, plaintext) {
+        function createMatrix(key) {
+            const matrix = Array(5).fill(null).map(() => Array(5).fill(null));
+            const keyWithoutDuplicates = [...new Set(key.replace(/[^а-я]/g, '').split(''))];
+            const alphabet = 'абвгдежзийклмнопрстуфхцчшщъыьэюя';
+    
+            let keyIndex = 0;
+            let alphabetIndex = 0;
+    
+            for (let i = 0; i < 5; i++) {
+                for (let j = 0; j < 5; j++) {
+                    if (keyIndex < keyWithoutDuplicates.length) {
+                        matrix[i][j] = keyWithoutDuplicates[keyIndex++];
+                    } else {
+                        while (key.includes(alphabet[alphabetIndex]) && keyWithoutDuplicates.includes(alphabet[alphabetIndex])) {
+                            alphabetIndex++;
+                        }
+                        matrix[i][j] = alphabet[alphabetIndex++];
+                    }
+                }
+            }
+    
+            return matrix;
+        }
+    
+        function getCharCoordinates(matrix, char) {
+            for (let i = 0; i < 5; i++) {
+                for (let j = 0; j < 5; j++) {
+                    if (matrix[i][j] === char) {
+                        return { row: i, col: j };
+                    }
+                }
+            }
+        }
+    
+        function encryptPair(matrix, pair) {
+            const firstCoord = getCharCoordinates(matrix, pair[0]);
+            const secondCoord = getCharCoordinates(matrix, pair[1]);
+    
+            if (firstCoord.row === secondCoord.row) {
+                return [
+                    matrix[firstCoord.row][(firstCoord.col + 1) % 5],
+                    matrix[secondCoord.row][(secondCoord.col + 1) % 5]
+                ];
+            } else if (firstCoord.col === secondCoord.col) {
+                return [
+                    matrix[(firstCoord.row + 1) % 5][firstCoord.col],
+                    matrix[(secondCoord.row + 1) % 5][secondCoord.col]
+                ];
+            } else {
+                return [
+                    matrix[firstCoord.row][secondCoord.col],
+                    matrix[secondCoord.row][firstCoord.col]
+                ];
+            }
+        }
+    
+        const formattedText = plaintext
+            .toLowerCase()
+            .replace(/[^а-я]/g, '')
+            .replace(/ье/g, 'э')
+            .replace(/йе/g, 'э');
+    
+        const pairs = [];
+        for (let i = 0; i < formattedText.length; i += 2) {
+            let pair = [formattedText[i]];
+            if (i + 1 < formattedText.length) {
+                pair.push(formattedText[i + 1]);
+            } else {
+                pair.push('з');
+            }
+            pairs.push(pair);
+        }
+    
+        const matrix = createMatrix(key);
+    
+        const ciphertext = pairs
+            .map(pair => encryptPair(matrix, pair))
+            .flat()
+            .join('');
+    
+        return ciphertext;
+    }
+    
+    const key = 'ключ';
+    const plaintext = 'примертекст';
+    const ciphertext = playfairCipher(key, plaintext);
+    console.log(`Закодированное: ${plaintext}`);
+    console.log(`Декодированное: ${ciphertext}`);
+}
+
+encode3();
+
+console.log('Кодировка Виженера:');
+//Вижинера 
+const encode4 = () => {
+    const alphabet = "абвгдеёжзийклмнопрстуфхцчшщъьэюя";
+    const numAlph = {}
+
+    for (let i = 0; i < alphabet.length; i++) {
+        numAlph[alphabet[i]] = i
+    }
+
+    function encrypt(text, key) {
+        let code = ''
+
+        for (let i = 0; i < text.length; i++) {
+            code += alphabet[(numAlph[text[i]] + numAlph[key[i % key.length]]) % alphabet.length]
+        }
+        return code
+    }
+
+    function decrypt(text, key) {
+        let code = ''
+
+        for (let i = 0; i < text.length; i++) {
+            code += alphabet[(numAlph[text[i]] - numAlph[key[i % key.length]] + alphabet.length) % alphabet.length]
+        }
+        return code
+    }
+
+    const message = "абстракция";
+    const key = "защита";
+
+    const encodeMess = encrypt(message, key);
+    const decodeMess = decrypt(encodeMess, key);
+
+    console.log(`Закодированное: ${encodeMess}`);
+    console.log(`Декодированное: ${decodeMess}`);
+}
+
+encode4();
+
+const decode = (message) => {
+    const width = 6;
+    const height = 7;
+
+    const array = [];
+    let currentChar = 0;
+
+    for (let i = 0; i < height; i++) {
+        const line = [];
+        for (let j = 0; j < width; j++) {
+            line.push(message[currentChar]);
+            currentChar++;
+        }
+        array.push(line);
+    }
+
+    let decodeMessage = '';
+
+    for (let j = 0; j < width; j++) {
+        for (let i = 0; i < height; i++) {
+            decodeMessage += array[i][j];
+        }
+    }
+
+    return decodeMessage;
+}
+
+const message = 'нп тр яч дн ка бо ат дъ ка цр кб щг уф уч тб ты';
+const decodeMessage = decode(message);
+console.log(`Декодированное: ${decodeMessage}`);
+console.log(`Закодированное: ${message}`);
+    </script>
+</body>
+</html>
