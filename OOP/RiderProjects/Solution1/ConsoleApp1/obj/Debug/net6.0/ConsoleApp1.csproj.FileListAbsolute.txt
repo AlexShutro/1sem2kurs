@@ -1,0 +1,28 @@
+C:\Users\Admin\RiderProjects\Solution1\ConsoleApp1\bin\Debug\net6.0\ConsoleApp1.exe
+C:\Users\Admin\RiderProjects\Solution1\ConsoleApp1\bin\Debug\net6.0\ConsoleApp1.deps.json
+C:\Users\Admin\RiderProjects\Solution1\ConsoleApp1\bin\Debug\net6.0\ConsoleApp1.runtimeconfig.json
+C:\Users\Admin\RiderProjects\Solution1\ConsoleApp1\bin\Debug\net6.0\ConsoleApp1.dll
+C:\Users\Admin\RiderProjects\Solution1\ConsoleApp1\bin\Debug\net6.0\ConsoleApp1.pdb
+C:\Users\Admin\RiderProjects\Solution1\ConsoleApp1\obj\Debug\net6.0\ConsoleApp1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\RiderProjects\Solution1\ConsoleApp1\obj\Debug\net6.0\ConsoleApp1.AssemblyInfoInputs.cache
+C:\Users\Admin\RiderProjects\Solution1\ConsoleApp1\obj\Debug\net6.0\ConsoleApp1.AssemblyInfo.cs
+C:\Users\Admin\RiderProjects\Solution1\ConsoleApp1\obj\Debug\net6.0\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\Admin\RiderProjects\Solution1\ConsoleApp1\obj\Debug\net6.0\ConsoleApp1.dll
+C:\Users\Admin\RiderProjects\Solution1\ConsoleApp1\obj\Debug\net6.0\refint\ConsoleApp1.dll
+C:\Users\Admin\RiderProjects\Solution1\ConsoleApp1\obj\Debug\net6.0\ConsoleApp1.pdb
+C:\Users\Admin\RiderProjects\Solution1\ConsoleApp1\obj\Debug\net6.0\ConsoleApp1.genruntimeconfig.cache
+C:\Users\Admin\RiderProjects\Solution1\ConsoleApp1\obj\Debug\net6.0\ref\ConsoleApp1.dll
+D:\1 сем\ооп\RiderProjects\Solution1\ConsoleApp1\bin\Debug\net6.0\ConsoleApp1.exe
+D:\1 сем\ооп\RiderProjects\Solution1\ConsoleApp1\bin\Debug\net6.0\ConsoleApp1.deps.json
+D:\1 сем\ооп\RiderProjects\Solution1\ConsoleApp1\bin\Debug\net6.0\ConsoleApp1.runtimeconfig.json
+D:\1 сем\ооп\RiderProjects\Solution1\ConsoleApp1\bin\Debug\net6.0\ConsoleApp1.dll
+D:\1 сем\ооп\RiderProjects\Solution1\ConsoleApp1\bin\Debug\net6.0\ConsoleApp1.pdb
+D:\1 сем\ооп\RiderProjects\Solution1\ConsoleApp1\obj\Debug\net6.0\ConsoleApp1.GeneratedMSBuildEditorConfig.editorconfig
+D:\1 сем\ооп\RiderProjects\Solution1\ConsoleApp1\obj\Debug\net6.0\ConsoleApp1.AssemblyInfoInputs.cache
+D:\1 сем\ооп\RiderProjects\Solution1\ConsoleApp1\obj\Debug\net6.0\ConsoleApp1.AssemblyInfo.cs
+D:\1 сем\ооп\RiderProjects\Solution1\ConsoleApp1\obj\Debug\net6.0\ConsoleApp1.csproj.CoreCompileInputs.cache
+D:\1 сем\ооп\RiderProjects\Solution1\ConsoleApp1\obj\Debug\net6.0\ConsoleApp1.dll
+D:\1 сем\ооп\RiderProjects\Solution1\ConsoleApp1\obj\Debug\net6.0\refint\ConsoleApp1.dll
+D:\1 сем\ооп\RiderProjects\Solution1\ConsoleApp1\obj\Debug\net6.0\ConsoleApp1.pdb
+D:\1 сем\ооп\RiderProjects\Solution1\ConsoleApp1\obj\Debug\net6.0\ConsoleApp1.genruntimeconfig.cache
+D:\1 сем\ооп\RiderProjects\Solution1\ConsoleApp1\obj\Debug\net6.0\ref\ConsoleApp1.dll
