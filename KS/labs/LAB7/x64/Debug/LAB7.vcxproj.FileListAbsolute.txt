@@ -1,0 +1,2 @@
+C:\Users\Еван\OneDrive\Рабочий стол\C++\Computer Networks\LAB7\x64\Debug\LAB7.exe
+D:\1 сем\кс\лабы\LAB7\x64\Debug\LAB7.exe
