@@ -1,0 +1,14 @@
+D:\1 сем\ооп\лабы\laba7\laba7\bin\Debug\net6.0\laba7.exe
+D:\1 сем\ооп\лабы\laba7\laba7\bin\Debug\net6.0\laba7.deps.json
+D:\1 сем\ооп\лабы\laba7\laba7\bin\Debug\net6.0\laba7.runtimeconfig.json
+D:\1 сем\ооп\лабы\laba7\laba7\bin\Debug\net6.0\laba7.dll
+D:\1 сем\ооп\лабы\laba7\laba7\bin\Debug\net6.0\laba7.pdb
+D:\1 сем\ооп\лабы\laba7\laba7\obj\Debug\net6.0\laba7.GeneratedMSBuildEditorConfig.editorconfig
+D:\1 сем\ооп\лабы\laba7\laba7\obj\Debug\net6.0\laba7.AssemblyInfoInputs.cache
+D:\1 сем\ооп\лабы\laba7\laba7\obj\Debug\net6.0\laba7.AssemblyInfo.cs
+D:\1 сем\ооп\лабы\laba7\laba7\obj\Debug\net6.0\laba7.csproj.CoreCompileInputs.cache
+D:\1 сем\ооп\лабы\laba7\laba7\obj\Debug\net6.0\laba7.dll
+D:\1 сем\ооп\лабы\laba7\laba7\obj\Debug\net6.0\refint\laba7.dll
+D:\1 сем\ооп\лабы\laba7\laba7\obj\Debug\net6.0\laba7.pdb
+D:\1 сем\ооп\лабы\laba7\laba7\obj\Debug\net6.0\laba7.genruntimeconfig.cache
+D:\1 сем\ооп\лабы\laba7\laba7\obj\Debug\net6.0\ref\laba7.dll
