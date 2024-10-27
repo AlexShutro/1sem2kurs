@@ -1,0 +1,14 @@
+D:\1 сем\ооп\лабы\laba13\laba13\bin\Debug\net6.0\laba13.exe
+D:\1 сем\ооп\лабы\laba13\laba13\bin\Debug\net6.0\laba13.deps.json
+D:\1 сем\ооп\лабы\laba13\laba13\bin\Debug\net6.0\laba13.runtimeconfig.json
+D:\1 сем\ооп\лабы\laba13\laba13\bin\Debug\net6.0\laba13.dll
+D:\1 сем\ооп\лабы\laba13\laba13\bin\Debug\net6.0\laba13.pdb
+D:\1 сем\ооп\лабы\laba13\laba13\obj\Debug\net6.0\laba13.GeneratedMSBuildEditorConfig.editorconfig
+D:\1 сем\ооп\лабы\laba13\laba13\obj\Debug\net6.0\laba13.AssemblyInfoInputs.cache
+D:\1 сем\ооп\лабы\laba13\laba13\obj\Debug\net6.0\laba13.AssemblyInfo.cs
+D:\1 сем\ооп\лабы\laba13\laba13\obj\Debug\net6.0\laba13.csproj.CoreCompileInputs.cache
+D:\1 сем\ооп\лабы\laba13\laba13\obj\Debug\net6.0\laba13.dll
+D:\1 сем\ооп\лабы\laba13\laba13\obj\Debug\net6.0\refint\laba13.dll
+D:\1 сем\ооп\лабы\laba13\laba13\obj\Debug\net6.0\laba13.pdb
+D:\1 сем\ооп\лабы\laba13\laba13\obj\Debug\net6.0\laba13.genruntimeconfig.cache
+D:\1 сем\ооп\лабы\laba13\laba13\obj\Debug\net6.0\ref\laba13.dll
