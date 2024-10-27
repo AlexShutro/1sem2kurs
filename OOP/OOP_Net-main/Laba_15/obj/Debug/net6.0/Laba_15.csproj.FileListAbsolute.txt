@@ -1,0 +1,14 @@
+D:\1 сем\ооп\OOP_Net-main\Laba_15\bin\Debug\net6.0\Laba_15.exe
+D:\1 сем\ооп\OOP_Net-main\Laba_15\bin\Debug\net6.0\Laba_15.deps.json
+D:\1 сем\ооп\OOP_Net-main\Laba_15\bin\Debug\net6.0\Laba_15.runtimeconfig.json
+D:\1 сем\ооп\OOP_Net-main\Laba_15\bin\Debug\net6.0\Laba_15.dll
+D:\1 сем\ооп\OOP_Net-main\Laba_15\bin\Debug\net6.0\Laba_15.pdb
+D:\1 сем\ооп\OOP_Net-main\Laba_15\obj\Debug\net6.0\Laba_15.GeneratedMSBuildEditorConfig.editorconfig
+D:\1 сем\ооп\OOP_Net-main\Laba_15\obj\Debug\net6.0\Laba_15.AssemblyInfoInputs.cache
+D:\1 сем\ооп\OOP_Net-main\Laba_15\obj\Debug\net6.0\Laba_15.AssemblyInfo.cs
+D:\1 сем\ооп\OOP_Net-main\Laba_15\obj\Debug\net6.0\Laba_15.csproj.CoreCompileInputs.cache
+D:\1 сем\ооп\OOP_Net-main\Laba_15\obj\Debug\net6.0\Laba_15.dll
+D:\1 сем\ооп\OOP_Net-main\Laba_15\obj\Debug\net6.0\refint\Laba_15.dll
+D:\1 сем\ооп\OOP_Net-main\Laba_15\obj\Debug\net6.0\Laba_15.pdb
+D:\1 сем\ооп\OOP_Net-main\Laba_15\obj\Debug\net6.0\Laba_15.genruntimeconfig.cache
+D:\1 сем\ооп\OOP_Net-main\Laba_15\obj\Debug\net6.0\ref\Laba_15.dll
